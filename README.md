@@ -188,6 +188,17 @@ The system is designed to be **grounded and safe** for advising-style answers:
 
 These rules are enforced directly in the system prompt given to the language model.
 
+## Live Demo (Gradio)
+
+A simplified demo version of the PathFinder@CISE app is available through Gradio on HuggingFace Spaces:
+**Live App:** (https://shiaananth1-pathfinderdemo.hf.space/?logs=build&__theme=system&deep_link=GPkPZsXdb7I)
+
+This version:
+- Uses a lightweight model for fast inference
+- Demonstrates the core RAG workflow
+- Allows users to enter questions and see grounded responses
+
+
 ## This Project is Maintained by:
 
 **Name:** Shia Ananth  
