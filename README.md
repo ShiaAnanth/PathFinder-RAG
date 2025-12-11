@@ -22,14 +22,14 @@ The system uses:
 PathFinder-RAG/
 │
 ├── app/
-│   ├── app.py                 # Main RAG script (builds vector store + runs a sample query)
+│   ├── requirements.txt           # Python dependencies for the app
+|   ├── app.py             # Main RAG script (builds vector store + runs a sample query)
 │   └── __init__.py
 │
 ├── CISE_programs.json         # Cleaned program + concentration + career data
 ├── program_overviews.json     # Program-level overview text (optional / supporting)
 ├── PathFinder_CISE.ipynb      # Development notebook (exploration, testing, and analysis)
 │
-├── requirements.txt           # Python dependencies
 ├── .gitignore                 # Git ignored files
 └── README.md                  # Project documentation (this file)
 ```
@@ -194,7 +194,7 @@ A simplified demo version of the PathFinder@CISE app is available through Gradio
 
 **Live App:** (https://shiaananth1-pathfinderdemo.hf.space/?logs=build&__theme=system&deep_link=GPkPZsXdb7I)
 
-### 🔹 What This Demo Does
+### What This Demo Does
 This demo provides a fast, interactive preview of the system by:
 
 - Loading **program_overviews.json**
@@ -205,7 +205,7 @@ This demo provides a fast, interactive preview of the system by:
 
 It focuses on the *core retrieval idea* without running the full RAG pipeline.
 
-### 🔹 How the Demo Works Internally
+### How the Demo Works Internally
 The demo code:
 
 1. Loads `program_overviews.json` (a simplified dataset of program names + 1–2 sentence descriptions).
@@ -231,23 +231,23 @@ The demo code:
 **Why This Demo Is Lightweight**
 Unlike the full RAG system, this demo:
 
-❌ does not build or query a Chroma vector store
+- does not build or query a Chroma vector store
 
-❌ does not chunk long descriptions
+- does not chunk long descriptions
 
-❌ does not call the Gemma LLM
+- does not call the Gemma LLM
 
-❌ does not enforce prompt-based grounding rules
+- does not enforce prompt-based grounding rules
 
 Instead, it focuses on:
 
-✔ pure embedding similarity
+- pure embedding similarity
 
-✔ fast inference
+- fast inference
 
-✔ simple demo-friendly behavior
+- simple demo-friendly behavior
 
-✔ an easy way for users to explore majors interactively
+- an easy way for users to explore majors interactively
 
 ## This Project is Maintained by:
 
