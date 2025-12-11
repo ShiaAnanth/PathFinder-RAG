@@ -84,10 +84,12 @@ Use **Python 3.10 or Python 3.11**.
 ```bash
 python -m venv venv
 ```
-to Activate it:
+To Activate it:
 
-on macOS / Linux: source venv/bin/activate
-on Windows: venv\Scripts\activate
+macOS / Linux: 
+`source venv/bin/activate`
+Windows: 
+`venv\Scripts\activate`
 
 3. Install all dependencies
 
@@ -95,8 +97,7 @@ on Windows: venv\Scripts\activate
 
 Gemma models may require a HuggingFace access token:
 
-export HF_TOKEN=your_token_here
-
+`export HF_TOKEN=your_token_here`
 
 Also ensure you have:
 
