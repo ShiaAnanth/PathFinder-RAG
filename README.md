@@ -35,9 +35,7 @@ PathFinder-RAG/
 ```
 ## Requirements
 
-## 📦 Requirements
-
-This project relies on several Python libraries for web scraping, text processing, embeddings, vector storage, and model inference.
+This project relies on several Python libraries for web scraping, text processing, embeddings, vector storage, and model inference. To run the RAG model you must install the dependencies below:
 
 ### Required Python Packages
 
