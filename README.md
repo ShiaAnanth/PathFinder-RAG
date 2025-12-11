@@ -18,7 +18,7 @@ The system uses:
 - Forces answers to stay grounded in the CISE dataset (no new majors or hallucinations)
 
 ## Repository Structure
-
+```text
 PathFinder-RAG/
 │
 ├── app/
@@ -32,7 +32,7 @@ PathFinder-RAG/
 ├── requirements.txt           # Python dependencies
 ├── .gitignore                 # Git ignored files
 └── README.md                  # Project documentation (this file)
-
+```
 ## Requirements
 
 ## 📦 Requirements
