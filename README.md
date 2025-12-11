@@ -228,6 +228,7 @@ The demo code:
 6. Computes cosine similarity manually:
 
 ```score = np.dot(q_emb, emb) / (np.linalg.norm(q_emb) * np.linalg.norm(emb))```
+
 7. Selects the highest-scoring major.
 
 8. Displays it in the Gradio interface.
