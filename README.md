@@ -191,6 +191,7 @@ These rules are enforced directly in the system prompt given to the language mod
 ## Live Demo (Gradio)
 
 A simplified demo version of the PathFinder@CISE app is available through Gradio on HuggingFace Spaces:
+
 **Live App:** (https://shiaananth1-pathfinderdemo.hf.space/?logs=build&__theme=system&deep_link=GPkPZsXdb7I)
 
 This version:
@@ -198,6 +199,58 @@ This version:
 - Demonstrates the core RAG workflow
 - Allows users to enter questions and see grounded responses
 
+### 🔹 What This Demo Does
+This demo provides a fast, interactive preview of the system by:
+
+- Loading **program_overviews.json**
+- Embedding each program's short description
+- Embedding the user’s question using `all-MiniLM-L6-v2`
+- Computing **cosine similarity** between the question and each program
+- Returning the **single closest-matching CISE major**
+
+It focuses on the *core retrieval idea* without running the full RAG pipeline.
+
+### 🔹 How the Demo Works Internally
+The demo code:
+
+1. Loads `program_overviews.json` (a simplified dataset of program names + 1–2 sentence descriptions).
+2. Creates a list of program entries:
+   ```python
+   {"program": prog, "description": desc}
+3. Loads the SentenceTransformer model:
+
+`embedder = SentenceTransformer("all-MiniLM-L6-v2")`
+4. Embeds the user’s question.
+
+5. Embeds each program’s description.
+
+6. Computes cosine similarity manually:
+
+`score = np.dot(q_emb, emb) / (np.linalg.norm(q_emb) * np.linalg.norm(emb))`
+7. Selects the highest-scoring major.
+
+8. Displays it in the Gradio interface.
+
+**Why This Demo Is Lightweight**
+Unlike the full RAG system, this demo:
+
+❌ does not build or query a Chroma vector store
+
+❌ does not chunk long descriptions
+
+❌ does not call the Gemma LLM
+
+❌ does not enforce prompt-based grounding rules
+
+Instead, it focuses on:
+
+✔ pure embedding similarity
+
+✔ fast inference
+
+✔ simple demo-friendly behavior
+
+✔ an easy way for users to explore majors interactively
 
 ## This Project is Maintained by:
 
