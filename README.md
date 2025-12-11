@@ -70,7 +70,7 @@ pip install \
 ```
 
 
-## 🔧 Installation & Setup
+##  Installation & Setup
 
 ### 1. Recommended Python Version
 Use **Python 3.10 or Python 3.11**.
@@ -103,7 +103,25 @@ A CUDA-enabled GPU
 
 Correct PyTorch + bitsandbytes installation
 
-## 🧾 Data: CISE Programs & Concentrations
+###  Access Required for Gemma Models (Important)
+
+This project uses **google/gemma-3-1b-it**, which is a **gated model** on HuggingFace.  
+To run the full RAG pipeline, you must:
+
+1. **Request access** to the Gemma 3 model on HuggingFace  
+   https://huggingface.co/google/gemma-3-1b-it
+
+2. **Create a HuggingFace access token**  
+   https://huggingface.co/settings/tokens  
+   (Choose “Read” permission)
+
+3. **Set the token as an environment variable** before running the code:
+
+```bash
+export HF_TOKEN=your_token_here
+```
+
+## Data: CISE Programs & Concentrations
 
 The core dataset is stored in:
 
