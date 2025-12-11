@@ -219,14 +219,15 @@ The demo code:
    {"program": prog, "description": desc}
 3. Loads the SentenceTransformer model:
 
-`embedder = SentenceTransformer("all-MiniLM-L6-v2")`
+```embedder = SentenceTransformer("all-MiniLM-L6-v2")```
+
 4. Embeds the user’s question.
 
 5. Embeds each program’s description.
 
 6. Computes cosine similarity manually:
 
-`score = np.dot(q_emb, emb) / (np.linalg.norm(q_emb) * np.linalg.norm(emb))`
+```score = np.dot(q_emb, emb) / (np.linalg.norm(q_emb) * np.linalg.norm(emb))```
 7. Selects the highest-scoring major.
 
 8. Displays it in the Gradio interface.
