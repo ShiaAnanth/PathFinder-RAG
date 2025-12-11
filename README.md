@@ -194,11 +194,6 @@ A simplified demo version of the PathFinder@CISE app is available through Gradio
 
 **Live App:** (https://shiaananth1-pathfinderdemo.hf.space/?logs=build&__theme=system&deep_link=GPkPZsXdb7I)
 
-This version:
-- Uses a lightweight model for fast inference
-- Demonstrates the core RAG workflow
-- Allows users to enter questions and see grounded responses
-
 ### 🔹 What This Demo Does
 This demo provides a fast, interactive preview of the system by:
 
