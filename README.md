@@ -28,7 +28,7 @@ PathFinder-RAG/
 │
 ├── CISE_programs.json         # Cleaned program + concentration + career data
 ├── program_overviews.json     # Program-level overview text (optional / supporting)
-├── PathFinder_CISE.ipynb      # Development notebook (exploration, testing, and analysis)
+├── PathFinder_CISE.ipynb     # Full development notebook (available on Google Colab — see below)
 │
 ├── .gitignore                 # Git ignored files
 └── README.md                  # Project documentation (this file)
@@ -204,70 +204,18 @@ The system is designed to be **grounded and safe** for advising-style answers:
 
 These rules are enforced directly in the system prompt given to the language model.
 
-## Live Demo (Gradio)
+## Notebook & Demo
 
-A simplified demo version of the PathFinder@CISE app is available through Gradio on HuggingFace Spaces:
+The full development notebook is available on Google Colab:
 
-**Live App:** (https://shiaananth1-pathfinderdemo.hf.space/?logs=build&__theme=system&deep_link=GPkPZsXdb7I)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Su4QpqVKbcmMWB0ByRynPlPSkTsGiowq?usp=sharing)
 
-### What This Demo Does
-This demo provides a fast, interactive preview of the system by:
+> To run the full pipeline, add your HuggingFace token to Colab Secrets under the key `HF_TOKEN` and request access to `google/gemma-3-1b-it` at huggingface.co/google/gemma-3-1b-it
 
-- Loading **program_overviews.json**
-- Embedding each program's short description
-- Embedding the user’s question using `all-MiniLM-L6-v2`
-- Computing **cosine similarity** between the question and each program
-- Returning the **single closest-matching CISE major**
-
-It focuses on the *core retrieval idea* without running the full RAG pipeline.
-
-### How the Demo Works Internally
-The demo code:
-
-1. Loads `program_overviews.json` (a simplified dataset of program names + 1–2 sentence descriptions).
-2. Creates a list of program entries:
-   ```python
-   {"program": prog, "description": desc}
-3. Loads the SentenceTransformer model:
-
-```embedder = SentenceTransformer("all-MiniLM-L6-v2")```
-
-4. Embeds the user’s question.
-
-5. Embeds each program’s description.
-
-6. Computes cosine similarity manually:
-
-```score = np.dot(q_emb, emb) / (np.linalg.norm(q_emb) * np.linalg.norm(emb))```
-
-7. Selects the highest-scoring major.
-
-8. Displays it in the Gradio interface.
-
-**Why This Demo Is Lightweight**
-Unlike the full RAG system, this demo:
-
-- does not build or query a Chroma vector store
-
-- does not chunk long descriptions
-
-- does not call the Gemma LLM
-
-- does not enforce prompt-based grounding rules
-
-Instead, it focuses on:
-
-- pure embedding similarity
-
-- fast inference
-
-- simple demo-friendly behavior
-
-- an easy way for users to explore majors interactively
+**Note:** A rebuilt demo with conversational memory and an improved UI is currently in development.
 
 ## This Project is Maintained by:
 
 **Name:** Shia Ananth  
-**Affiliation:** Integrated Science and Technology Major, College of Integrated Science and Engineering (CISE), James Madison University  
-
-This repository was created as part of a course project on Retrieval-Augmented Generation and program advising tools.
+**Affiliation**: B.S. Integrated Science and Technology, James Madison University | Incoming MISM-BIDA, Carnegie Mellon University
+This repository was created as part of a course project on Retrieval-Augmented Generation and program advising tools at James Madison University.
